@@ -409,7 +409,8 @@ function createPanZoom(domElement, options) {
 
         lastX = v.x
         lastY = v.y
-      }
+      },
+      done: triggerMoveEnd
     })
   }
 
@@ -798,6 +799,10 @@ function createPanZoom(domElement, options) {
       if (!multiTouch) smoothScroll.stop()
       triggerEvent('panend')
     }
+  }
+
+  function triggerMoveEnd() {
+    triggerEvent('moveend')
   }
 
   function triggerZoomEnd() {
